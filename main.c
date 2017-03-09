@@ -9,7 +9,7 @@
 int check(char * addr) {
     regex_t regex;
     int r;
-    if(regcomp(&regex, "^(([0-9]|[a-fA-F]){2}(:|-)?){5}([0-9]|[a-f]){2}$", 0)) {
+    if(regcomp(&regex, "^(([0-9]|[a-fA-F]){2}(:|-)?){5}([0-9]|[a-f]){2}$", REG_EXTENDED)) {
         printf("ERROR!");
         exit(1);
     }
@@ -40,9 +40,9 @@ int main(int argc, const char * argv[]) {
 
         printf("%s", addr);
         if (check(addr))
-            printf("\t\tVALID");
+            printf("\t\tVALIDA");
         else
-            printf("\t\tINVALID");
+            printf("\t\tINVALIDA");
 
         printf("\nContinuar? (Y) > ");
         __fpurge(stdin);
